@@ -4,6 +4,7 @@ import { DoBootstrap, Injector, NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { createCustomElement } from '@angular/elements';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RxNgZoneSchedulerModule } from 'ngx-rxjs-zone-scheduler';
 
 @NgModule({
   declarations: [
@@ -11,7 +12,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RxNgZoneSchedulerModule
   ],
   providers: [],
   entryComponents: [

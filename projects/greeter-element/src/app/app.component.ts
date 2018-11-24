@@ -1,8 +1,9 @@
 import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { GreeterService } from './greeter.service';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Observable, Subject } from 'rxjs';
+import { asapScheduler, Observable, Subject } from 'rxjs';
 import { map, takeUntil } from 'rxjs/operators';
+import { RxNgZoneScheduler } from 'ngx-rxjs-zone-scheduler';
 
 @Component({
   templateUrl: './app.component.html',
@@ -19,10 +20,11 @@ export class AppComponent implements OnInit, OnDestroy {
 
   private destroy$ = new Subject<boolean>();
 
-  constructor(private greeterService: GreeterService) { }
+  constructor(private greeterService: GreeterService, private rxNgZoneScheduler: RxNgZoneScheduler) { }
 
   ngOnInit(): void {
     this.greeting$ = this.formGroup.valueChanges.pipe(
+      this.rxNgZoneScheduler.observeOnNgZone(asapScheduler),
       map(({name}) => this.greeterService.greet(name)),
       takeUntil(this.destroy$)
     );
