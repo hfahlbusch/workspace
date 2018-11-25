@@ -1,15 +1,13 @@
 import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { GreeterService } from './greeter.service';
 import { FormControl, FormGroup } from '@angular/forms';
-import { asapScheduler, Observable, Subject } from 'rxjs';
-import { map, takeUntil } from 'rxjs/operators';
-import { RxNgZoneScheduler } from 'ngx-rxjs-zone-scheduler';
+import { Observable, Subject } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  encapsulation: ViewEncapsulation.ShadowDom,
-  selector: 'app-root'
+  encapsulation: ViewEncapsulation.ShadowDom
 })
 export class AppComponent implements OnInit, OnDestroy {
   public formGroup = new FormGroup({
@@ -20,13 +18,11 @@ export class AppComponent implements OnInit, OnDestroy {
 
   private destroy$ = new Subject<boolean>();
 
-  constructor(private greeterService: GreeterService, private rxNgZoneScheduler: RxNgZoneScheduler) { }
+  constructor(private greeterService: GreeterService) { }
 
   ngOnInit(): void {
     this.greeting$ = this.formGroup.valueChanges.pipe(
-      this.rxNgZoneScheduler.observeOnNgZone(asapScheduler),
-      map(({name}) => this.greeterService.greet(name)),
-      takeUntil(this.destroy$)
+      map(({name}) => this.greeterService.greet(name))
     );
   }
 
