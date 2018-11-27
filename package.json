@@ -9,7 +9,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build:element": "ng build --project greeter-element --prod --extraWebpackConfig webpack.extra.js --output-hashing none --single-bundle true && cp -R dist/greeter-element/main.js projects/greeter-element/test",
-    "serve:element": "cd projects/greeter-element/test && ws"
+    "serve:element": "cd projects/greeter-element/test && ws",
+    "serve:backend": "ts-node projects/auth-server/index.ts"
   },
   "private": true,
   "dependencies": {
@@ -24,8 +25,10 @@
     "@angular/platform-browser-dynamic": "~7.0.0",
     "@angular/router": "~7.0.0",
     "@webcomponents/custom-elements": "^1.2.1",
+    "body-parser": "^1.18.3",
     "core-js": "^2.5.4",
     "document-register-element": "^1.7.2",
+    "express": "^4.16.4",
     "ngx-build-plus": "^7.2.3",
     "ngx-rxjs-zone-scheduler": "0.2.1",
     "rxjs": "~6.3.3",
@@ -36,6 +39,8 @@
     "@angular/cli": "~7.0.6",
     "@angular/compiler-cli": "~7.0.0",
     "@angular/language-service": "~7.0.0",
+    "@types/body-parser": "^1.17.0",
+    "@types/express": "^4.16.0",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
@@ -49,7 +54,7 @@
     "karma-jasmine-html-reporter": "^0.2.2",
     "local-http-server": "^1.0.0",
     "protractor": "~5.4.0",
-    "ts-node": "~7.0.0",
+    "ts-node": "^7.0.1",
     "tslint": "~5.11.0",
     "typescript": "~3.1.6"
   }
