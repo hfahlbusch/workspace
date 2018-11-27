@@ -25,6 +25,7 @@
     "@angular/platform-browser-dynamic": "~7.0.0",
     "@angular/router": "~7.0.0",
     "@webcomponents/custom-elements": "^1.2.1",
+    "angular-jwt": "^0.1.10",
     "body-parser": "^1.18.3",
     "core-js": "^2.5.4",
     "document-register-element": "^1.7.2",
