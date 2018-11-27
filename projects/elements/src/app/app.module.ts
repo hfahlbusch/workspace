@@ -11,7 +11,7 @@ import { GreeterModule } from './greeter/greeter.module';
   imports: [
     BrowserModule,
     GreeterModule.forRoot({
-      showTimestamp: false
+      showTimestamp: true
     })
   ],
   declarations: [

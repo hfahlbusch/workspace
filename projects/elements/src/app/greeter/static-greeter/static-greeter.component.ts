@@ -1,9 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 
 @Component({
-  selector: 'greeter-static',
   templateUrl: './static-greeter.component.html',
-  styleUrls: ['./static-greeter.component.css']
+  styleUrls: ['./static-greeter.component.css'],
+  encapsulation: ViewEncapsulation.ShadowDom
 })
 export class StaticGreeterComponent {
   @Input() name = 'world';

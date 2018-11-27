@@ -7,8 +7,7 @@ import { map, startWith } from 'rxjs/operators';
 @Component({
   templateUrl: './dynamic-greeter.element.html',
   styleUrls: ['./dynamic-greeter.element.css'],
-  encapsulation: ViewEncapsulation.ShadowDom,
-  selector: 'greeter-dynamic'
+  encapsulation: ViewEncapsulation.ShadowDom
 })
 export class DynamicGreeterElement implements OnInit, OnDestroy {
   public formGroup = new FormGroup({
