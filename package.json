@@ -8,8 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build:element": "ng build --project greeter-element --prod --extraWebpackConfig webpack.extra.js --output-hashing none --single-bundle true && cp -R dist/greeter-element/main.js projects/greeter-element/test",
-    "serve:element": "cd projects/greeter-element/test && ws"
+    "element:build": "ng build --project elements --prod --extraWebpackConfig webpack.extra.js --output-hashing none --single-bundle true && cp -R dist/elements/main.js projects/elements/test",
+    "element:serve": "cd projects/elements/test && ws"
   },
   "private": true,
   "dependencies": {

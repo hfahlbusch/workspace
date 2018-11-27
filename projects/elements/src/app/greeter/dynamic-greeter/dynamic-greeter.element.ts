@@ -1,17 +1,18 @@
 import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
-import { GreeterService } from './greeter.service';
+import { GreeterService } from '../services/greeter.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Observable, Subject } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, startWith } from 'rxjs/operators';
 
 @Component({
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  encapsulation: ViewEncapsulation.ShadowDom
+  templateUrl: './dynamic-greeter.element.html',
+  styleUrls: ['./dynamic-greeter.element.css'],
+  encapsulation: ViewEncapsulation.ShadowDom,
+  selector: 'greeter-dynamic'
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class DynamicGreeterElement implements OnInit, OnDestroy {
   public formGroup = new FormGroup({
-    name: new FormControl('')
+    name: new FormControl('world')
   });
 
   public greeting$: Observable<string>;
@@ -22,7 +23,8 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.greeting$ = this.formGroup.valueChanges.pipe(
-      map(({name}) => this.greeterService.greet(name))
+      startWith(this.formGroup.value),
+      map(({name}) => this.greeterService.greet(name)),
     );
   }
 

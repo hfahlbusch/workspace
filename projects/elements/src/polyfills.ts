@@ -72,8 +72,14 @@
 /***************************************************************************************************
  * Zone JS is required by default for Angular itself.
  */
-// import 'zone.js/dist/zone';  // Included with Angular CLI.
+// import 'zone.js/dist/zone';  // Included with Angular CLI.#
 
+// Workaround when using noopZone completely without importing Zone.js
+(window as any)['Zone'] = {
+  current: {
+    get: function() {}
+  }
+};
 
 /***************************************************************************************************
  * APPLICATION IMPORTS
