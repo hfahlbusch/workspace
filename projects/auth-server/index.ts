@@ -8,7 +8,7 @@ const fs = require('fs');
 const app = express();
 app.use(bodyParser());
 
-const jwt = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InBldGVyIn0.3UAFVZ-vbu9HtwjXnU2UDxwGC-oxBYiJ0sARLXqRpP8';
+const jwt = 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InBldGVyIiwiZXhwIjozNTIzNDQxMTg3fQ.MAOFjGA0mHVgfMesnoNrqSzFzMWfaEXj4MyswRY4CK4';
 
 app.post('/api/login', (req: Request, res: Response) => {
   if (req.body && req.body.username === 'peter' && req.body.password === 'fancy-pw') {
