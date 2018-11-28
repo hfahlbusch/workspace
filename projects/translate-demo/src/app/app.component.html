@@ -1,14 +1,13 @@
-<p>{{'app.text.selectYourLanguage'}}</p>
+<p>Select your language</p>
 <form [formGroup]="languageFormGroup">
   <select formControlName="language">
-    <option value="en">{{'app.languages.en' | translate}}</option>
-    <option value="de">{{'app.languages.de' | translate}}</option>
+    <option value="en">English</option>
+    <option value="de">German</option>
   </select>
   <hr>
   <input type="text" formControlName="name" placeholder="Name" #nameInput>
 </form>
 <hr>
 
-<h1>{{ 'app.headline1' | translate:{name: nameInput?.value} }}</h1>
-<!--<h1 translate [translateParams]="{name: nameInput?.value}">app.headline1</h1>-->
-<button type="button" (click)="greet()">{{'app.buttons.greet' | translate}}</button>
+<h1>Welcome {{nameInput?.value}}</h1>
+<button type="button" (click)="greet()">Say hello!</button>
