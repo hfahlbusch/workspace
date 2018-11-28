@@ -1,0 +1,18 @@
+{
+  "app": {
+    "headline1": "Willkommen {{name}}",
+    "text": {
+      "selectYourLanguage": "Bitte wählen Sie Ihre Sprache:"
+    },
+    "languages": {
+      "de": "Deutsch",
+      "en": "Englisch"
+    },
+    "buttons": {
+      "greet": "Sag hallo!"
+    },
+    "alerts": {
+      "hello": "Hallo {{name}}!"
+    }
+  }
+}
