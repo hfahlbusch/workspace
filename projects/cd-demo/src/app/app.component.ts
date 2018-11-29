@@ -1,5 +1,6 @@
 import { Component, DoCheck } from '@angular/core';
 import { GreetingInfo } from './models';
+import { DataService } from './services/data.service';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,7 @@ export class AppComponent implements DoCheck {
   public name = 'Florian';
   public greeting = 'Hello';
 
-  public greetingInfo = new GreetingInfo('Hello', 'Florian');
+  constructor(private dataService: DataService) { }
 
   ngDoCheck(): void {
     console.log('Change detection for AppComponent');
@@ -22,7 +23,7 @@ export class AppComponent implements DoCheck {
 
   changeName(): void {
     this.name = 'Alex';
-    this.greetingInfo.name = 'Alex';
-    // this.greetingInfo = new GreetingInfo('Hello', 'Alex');
+    // this.greetingInfo.name = 'Alex';
+    this.dataService.changeGreetingInfo({greeting: 'Hello', name: 'Alex'});
   }
 }
